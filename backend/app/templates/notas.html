@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Notas del Usuario</title>
+  </head>
+  <body>
+    <h1>Notas del Usuario</h1>
+    {% if notas %}
+    <ul>
+      {% for nota in notas %}
+      <li>Materia: {{ nota.materia }} - Nota: {{ nota.nota }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No se encontraron notas para este usuario.</p>
+    {% endif %}
+  </body>
+</html>

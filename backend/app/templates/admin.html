@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Administración</title>
+  </head>
+  <body>
+    <h1>Bienvenido, {{ usuario.nombre }} ({{ usuario.rol }})</h1>
+    <p>Email: {{ usuario.email }}</p>
+
+    <h2>Opciones de Administración</h2>
+    <ul>
+      <!-- Gestión de usuarios -->
+      <li><a href="/gestionar-usuarios">Gestionar Usuarios</a></li>
+      <li><a href="{{ url_for('crear_usuario') }}">Crear Nuevo Usuario</a></li>
+
+      <!-- Gestión de actividades -->
+      <li><a href="/admin/actividades">Gestionar Actividades</a></li>
+      <li><a href="/admin/crear_actividad">Crear Nueva Actividad</a></li>
+
+      <!-- Funciones adicionales -->
+      <li><a href="/editar-notas">Editar Notas</a></li>
+      <li><a href="/reportes">Ver Reportes</a></li>
+      <li><a href="/certificados">Descargar Certificados</a></li>
+    </ul>
+
+    <h2>Configuraciones</h2>
+    <ul>
+      <li><a href="/configuracion">Configuración del Sistema</a></li>
+      <li><a href="/soporte">Soporte Técnico</a></li>
+    </ul>
+
+    <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Certificado</title>
+  </head>
+  <body>
+    <h1>Editar Certificado</h1>
+
+    <form method="POST">
+      <div>
+        <label for="tipo">Tipo de Certificado:</label>
+        <input
+          type="text"
+          name="tipo"
+          value="{{ certificado.tipo }}"
+          required
+        />
+      </div>
+
+      <button type="submit">Actualizar Certificado</button>
+    </form>
+  </body>
+</html>

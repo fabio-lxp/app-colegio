@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Usuario Regular</title>
+  </head>
+  <body>
+    <h1>Bienvenido, {{ usuario.nombre }} ({{ usuario.rol }})</h1>
+    <p>Email: {{ usuario.email }}</p>
+    <ul>
+      <li><a href="/consultar-notas">Consultar Notas</a></li>
+      <li><a href="/certificados">Requerir Certificados</a></li>
+    </ul>
+    <a href="{{ url_for('logout') }}">Cerrar Sesión</a>
+  </body>
+</html>

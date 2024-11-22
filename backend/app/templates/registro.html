@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrar Usuario</title>
+  </head>
+  <body>
+    <h1>Registro de Usuario</h1>
+    <form method="POST">
+      <label for="nombre">Nombre:</label>
+      <input type="text" name="nombre" id="nombre" required /><br /><br />
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" name="email" id="email" required /><br /><br />
+
+      <label for="contraseña">Contraseña:</label>
+      <input
+        type="password"
+        name="contraseña"
+        id="contraseña"
+        required
+      /><br /><br />
+
+      <label for="rol">Rol:</label>
+      <select name="rol" id="rol" required>
+        <option value="administrador">Administrador</option>
+        <option value="usuario">Usuario</option></select
+      ><br /><br />
+
+      <button type="submit">Registrar</button>
+    </form>
+  </body>
+</html>

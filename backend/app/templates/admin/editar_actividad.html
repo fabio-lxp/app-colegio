@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Actividad</title>
+  </head>
+  <body>
+    <h1>Editar Actividad</h1>
+    <form
+      id="form-editar-actividad"
+      method="POST"
+      action="{{ url_for('editar_actividad', actividad_id=actividad.id) }}"
+    >
+      <label for="nombre">Nombre de la Actividad:</label>
+      <input
+        type="text"
+        name="nombre"
+        id="nombre"
+        value="{{ actividad.nombre }}"
+        required
+      /><br />
+
+      <label for="fecha">Fecha:</label>
+      <input
+        type="date"
+        name="fecha"
+        id="fecha"
+        value="{{ actividad.fecha }}"
+        required
+      /><br />
+
+      <button type="submit">Guardar Cambios</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      const form = document.getElementById("form-editar-actividad");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        Swal.fire({
+          title: "¿Guardar cambios?",
+          text: "Se actualizarán los datos de la actividad.",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Sí, guardar",
+          cancelButtonText: "Cancelar",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            form.submit();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

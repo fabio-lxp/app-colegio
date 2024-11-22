@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Certificados</title>
+  </head>
+  <body>
+    <h1>Certificados</h1>
+    <a href="{{ url_for('crear_certificado') }}">Crear Certificado</a>
+    <table>
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Tipo</th>
+          <th>Fecha de Emisión</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for certificado in certificados %}
+        <tr>
+          <td>{{ certificado.usuario.nombre }}</td>
+          <td>{{ certificado.tipo }}</td>
+          <td>{{ certificado.fecha_emision }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

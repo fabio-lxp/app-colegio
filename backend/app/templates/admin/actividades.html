@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Actividades</title>
+  </head>
+  <body>
+    <h1>Lista de Actividades</h1>
+    <a href="{{ url_for('crear_actividad') }}">Crear Nueva Actividad</a>
+    <ul>
+      {% for actividad in actividades %}
+      <li>
+        {{ actividad.nombre }} - {{ actividad.fecha }}
+        <a href="{{ url_for('editar_actividad', actividad_id=actividad.id) }}"
+          >Editar</a
+        >
+        <a href="{{ url_for('eliminar_actividad', actividad_id=actividad.id) }}"
+          >Eliminar</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
