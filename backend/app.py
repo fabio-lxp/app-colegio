@@ -1,12 +1,15 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
-from flask_cors import CORS
+from flask_cors import CORS  # Importa CORS
 
-app = Flask(__name__, static_folder='frontend/build', static_url_path='')  # Configura React como estático
+app = Flask(__name__, static_folder='frontend/build/static', static_url_path='/static')  # Configura React como estático
+
+# Configuración de CORS
 CORS(app)  # Permite CORS para todas las rutas
 
+# Configuración de la base de datos y Flask-Login
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:password@localhost/colegio'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "tu_clave_secreta"  # Necesaria para Flask-Login
@@ -29,10 +32,11 @@ from app import routes
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve_react(path):
-    if path and (app.static_folder / path).exists():
+    if path != "" and (app.static_folder / path).exists():
         return send_from_directory(app.static_folder, path)
     else:
-        return send_from_directory(app.static_folder, 'index.html')
+        # Sirve el archivo 'index.html' de React para cualquier ruta
+        return send_from_directory('frontend/build', 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

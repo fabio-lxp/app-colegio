@@ -1,0 +1,132 @@
+/* Ajuste del margen superior del cuerpo */
+body {
+  margin-top: 95px; /* Ajustar este valor a la altura exacta del navbar fijo */
+}
+
+/* Contenedor principal */
+.navbar-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sub-navbar (gris, parte superior) */
+.sub-navbar {
+  position: relative; /* Permite que se desplace normalmente */
+  width: 100%; /* Asegúrate de que ocupe todo el ancho */
+  background-color: #f0f0f0; /* Color gris claro para destacar */
+  z-index: 900; /* Asegúrate de que esté encima del contenido */
+  padding: 5px 20px; /* Espaciado interno */
+  display: flex; /* Garantiza que los elementos estén visibles */
+  justify-content: space-between; /* Distribuye los elementos */
+  align-items: center; /* Alinea verticalmente los elementos */
+}
+
+
+.contact-info {
+  margin: 0;
+  color: #333;
+}
+
+/* Redes sociales */
+.sub-navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-left: 0px;
+}
+
+.sub-navbar-center a {
+  color: #FD5757;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.sub-navbar-center a:hover {
+  color: #01BE60;
+}
+
+.sub-navbar-right {
+  flex: 1;
+  text-align: right;
+}
+
+.login-link {
+  color: #FD5757;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.login-link:hover {
+  color: #01BE60;
+}
+
+/* Navbar (rojo, fijo) */
+.navbar {
+  position: fixed; /* Fijo en la parte superior */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que esté encima del sub-navbar */
+  background-color: #FD5757;
+  padding: 10px 20px;
+}
+
+.navbar-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar-link:hover {
+  color: #01BE60;
+}
+
+/* Dropdown contenido */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.dropdown-content a {
+  display: block;
+  color: #FD5757;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.dropdown-content a:hover {
+  background-color: #FD5757;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

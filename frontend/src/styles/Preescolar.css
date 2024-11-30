@@ -1,0 +1,131 @@
+/* Estilo general para la página Preescolar */
+.preescolar-page {
+    background-color: #f5f5f5; /* Fondo general */
+    padding: 20px;
+    min-height: 100vh; /* Asegura que ocupe toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente los contenedores */
+    gap: 20px; /* Espaciado entre secciones */
+  }
+  
+  /* Estilo común para todas las secciones */
+  .section-preescolar,
+  .section-mision,
+  .section-vision,
+  .section-manual {
+    background-color: #ffffff; /* Fondo blanco para cada sección */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 800px; /* Ancho máximo para limitar texto */
+    width: 100%; /* Asegura que el ancho sea responsivo */
+    text-align: center; /* Centra el contenido dentro de la sección */
+  }
+  
+  /* Estilo para los encabezados */
+  .section-preescolar h2,
+  .section-mision h2,
+  .section-vision h2,
+  .section-manual h2,
+  .section-actividades h2 {
+    font-size: 1.8rem; /* Tamaño de los encabezados */
+    color: #333333; /* Color oscuro para contraste */
+    margin-bottom: 10px; /* Espaciado inferior */
+  }
+  
+  /* Estilo para los párrafos */
+  .section-preescolar p,
+  .section-mision p,
+  .section-vision p,
+  .section-manual p {
+    font-size: 1rem; /* Tamaño de letra estándar */
+    color: #555555; /* Color gris para texto */
+    line-height: 1.6; /* Mejora la legibilidad */
+    text-align: justify; /* Justifica el texto */
+    margin-bottom: 15px; /* Espaciado inferior */
+  }
+  
+ .strong-preescolar{
+   text-align: center;
+ }
+
+  /* Enlaces dentro de las secciones */
+  .section-manual a {
+    color: #007BFF; /* Color azul para enlaces */
+    text-decoration: none;
+  }
+  
+  .section-manual a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Sección de Lista de actividades */
+.section-actividades {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9; /* Fondo de la sección */
+    width: 100%; /* Ocupa todo el ancho de la página */
+}
+
+.section-actividades h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.actividades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Máximo de 4 columnas */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Asegura que ocupe el ancho completo */
+    max-width: 1200px; /* Ajusta un límite máximo para el ancho total */
+    margin: 0 auto; /* Centra el contenedor si la pantalla es más grande */
+}
+
+.card {
+    background: #ffffff; /* Fondo blanco para las tarjetas */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px; /* Añadir padding interno */
+    min-width: 200px; /* Establecer un ancho mínimo para las tarjetas */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #555;
+    font-weight: bold; /* Aumentar el peso de la fuente para mayor énfasis */
+}
+
+.card-description {
+    font-size: 0.9rem;
+    color: #777;
+    padding: 0 10px 10px;
+}
+
+/* Estilo adicional para mejorar la visualización */
+.card:hover .card-title,
+.card:hover .card-description {
+    color: #000; /* Cambiar el color del texto al pasar el mouse */
+}
+
+.card-description {
+    padding-bottom: 20px; /* Aumenta el espacio inferior del texto */
+}

@@ -1,10 +1,12 @@
 from app import app, db, bcrypt, login_manager
 from flask import render_template, request, redirect, url_for, flash, session, jsonify
 from flask_login import login_user, logout_user, current_user, login_required
-from app.models import Usuario, Nota, Actividad, Certificado
+from app.models import Usuario, Nota, Actividad, Certificado, Inscripcion
 from app.decorators import requiere_rol
 from werkzeug.security import generate_password_hash
+from flask_cors import CORS
 
+CORS(app, origins="http://localhost:3000", supports_credentials=True)
 
 # Cargar el usuario por ID (necesario para Flask-Login)
 @login_manager.user_loader
@@ -174,6 +176,33 @@ def eliminar_actividad(id):
     return redirect(url_for('listar_actividades'))
 
 
+# APIS PARA CONECTAR CON EL FRONTEND (React)
+
+# Ruta API para inicio de sesión
+@app.route("/api/login", methods=["POST"])
+def api_login():
+    datos = request.json  # Obtener datos del cuerpo de la solicitud
+    email = datos.get("email")
+    password = datos.get("password")
+
+    # Buscar el usuario por email
+    usuario = Usuario.query.filter_by(email=email).first()
+
+    if usuario and usuario.verificar_contrasena(password):  # Verificar la contraseña
+        # Crear una respuesta con los datos del usuario
+        respuesta = {
+            "mensaje": "Inicio de sesión exitoso",
+            "usuario": {
+                "id": usuario.id,
+                "nombre": usuario.nombre,
+                "email": usuario.email,
+                "rol": usuario.rol
+            }
+        }
+        return jsonify(respuesta), 200
+    else:
+        return jsonify({"error": "Credenciales incorrectas"}), 401
+
 # API para crear usuario
 @app.route("/api/usuarios", methods=["POST"])
 def api_crear_usuario():
@@ -192,6 +221,29 @@ def api_crear_usuario():
     db.session.commit()
 
     return jsonify({"mensaje": "Usuario creado exitosamente"}), 201
+
+
+
+
+# Formulario de isncripción 
+
+@app.route('/api/inscribir', methods=['POST'])
+def inscribir():
+    data = request.json
+    try:
+        nueva_inscripcion = Inscripcion(
+            nombre=data['nombre'],
+            apellido=data['apellido'],
+            email=data['email'],
+            telefono=data.get('telefono'),
+            direccion=data.get('direccion')
+        )
+        db.session.add(nueva_inscripcion)
+        db.session.commit()
+        return jsonify({"message": "Inscripción exitosa"}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
 
 # CRUD de Certificados
 

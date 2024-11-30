@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Página Principal</title>
+    <!-- Cargar el archivo CSS generado por React -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.f855e6bc.css') }}"
+    />
   </head>
   <body>
     <!-- Navbar Público -->
@@ -32,5 +37,11 @@
       <h2>Contacto</h2>
       <p>Email: contacto@talentotech.edu | Teléfono: 555-123-456</p>
     </section>
+
+    <!-- Este es el contenedor donde React montará su app -->
+    <div id="root"></div>
+
+    <!-- Cargar el archivo JS generado por React -->
+    <script src="{{ url_for('static', filename='js/main.e57bb564.js') }}"></script>
   </body>
 </html>
